@@ -2,7 +2,7 @@
 	<div>
 		<div class="title">热销推荐</div>
 		<ul>
-			<li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+			<li class="item border-bottom" v-for="item of recommend" :key="item.id">
 				<img class="item-img" :src="item.imgUrl" />
 				<div class="item-info">
 					<p class="item-title">{{ item.title }}</p>
@@ -17,29 +17,8 @@
 <script>
 	export default {
 		name: 'HomeRecommend',
-		data() {
-			return {
-				recommendList: [
-					{
-						id: 1,
-						imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_140x140_80f63803.jpg',
-						title: '故宫',
-						desc: '东方宫殿建筑代表，世界宫殿建筑典范'
-					},
-					{
-						id: 2,
-						imgUrl: 'http://img1.qunarzz.com/sight/p0/1511/d2/d2aec2dfc5aa771290.water.jpg_140x140_abb362a7.jpg',
-						title: '南山滑雪场',
-						desc: '北京专业级滑雪圣地'
-					},
-					{
-						id: 3,
-						imgUrl: 'http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_140x140_ef235b1c.jpg',
-						title: '天安门广场',
-						desc: '我爱北京天安门，天安门上太阳升'
-					}
-				]
-			}
+		props: {
+			recommend: Array
 		}
 	}
 </script>

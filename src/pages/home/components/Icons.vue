@@ -1,6 +1,6 @@
 <template>
 	<div class="icons">
-		<swiper>
+		<swiper :options="swiperOption">
 			<swiper-slide v-for="(page, index) of pages" :key="index">
 				<div class="icon" v-for="item of page" :key="item.id">
 					<div class="icon-img">
@@ -16,56 +16,20 @@
 <script>
 	export default {
 		name: 'HomeIcons',
+		props: {
+			icon: Array
+		},
 		data() {
 			return {
-				iconList: [
-					{
-						id: 1,
-						imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-						desc: '景点门票'
-					},
-					{
-						id: 2,
-						imgUrl: 'http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png',
-						desc: '滑雪季'
-					},
-					{
-						id: 3,
-						imgUrl: 'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
-						desc: '泡温泉'
-					},
-					{
-						id: 4,
-						imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-						desc: '景点门票'
-					},
-					{
-						id: 5,
-						imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-						desc: '景点门票'
-					},
-					{
-						id: 6,
-						imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-						desc: '景点门票'
-					},
-					{
-						id: 7,
-						imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-						desc: '景点门票'
-					},
-					{
-						id: 8,
-						imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-						desc: '景点门票'
-					}
-				]
+				swiperOption: {
+					autoplay: false
+				}
 			}
 		},
 		computed: {
 			pages() {
 				const pages = []
-				this.iconList.forEach(function(item, index){
+				this.icon.forEach(function(item, index){
 					const page = Math.floor(index/8)
 					if(!pages[page]){
 						pages[page] = []
