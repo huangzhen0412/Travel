@@ -1,14 +1,15 @@
 <template>
 	<ul class="list">
-		<li class="item">A</li>
-		<li class="item">A</li>
-		<li class="item">A</li>
+		<li class="item" v-for="(item, key) of cities" :key="key">{{ key }}</li>
 	</ul>
 </template>
 
 <script>
 	export default {
-		name: 'CityAlphabet'
+		name: 'CityAlphabet',
+		props: {
+			cities: Object
+		}
 	}
 </script>
 
@@ -24,7 +25,7 @@
 		bottom: 0
 		width: .4rem
 		.item
-			line-height: .44rem
+			line-height: .4rem
 			text-align: center
 			color: $bgColor
 </style>
