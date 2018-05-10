@@ -1,11 +1,19 @@
 <template>
 	<div>
-		<router-link tag="div" to="/" class="header-abs" v-show="showAbs">
-			<div class="iconfont header-abs-icon">&#xe624;</div>
+		<router-link 
+			tag="div" 
+			to="/" 
+			class="header-abs" 
+			v-show="showAbs">
+			<div class="iconfont header-abs-back">&#xe624;</div>
 		</router-link>
-		<div class="header-fixed" v-show="!showAbs" :style="opacityStyle">
+		<div 
+			class="header-fixed" 
+			v-show="!showAbs" 
+			:style="opacityStyle"
+		>
 			<router-link to="/">
-				<div class="iconfont header-fixed-icon">&#xe624;</div>
+				<div class="iconfont header-fixed-back">&#xe624;</div>
 			</router-link>
 			景点详情
 		</div>
@@ -13,7 +21,6 @@
 </template>
 
 <script>
-	
 	export default {
 		name: 'DetailHeader',
 		data() {
@@ -37,12 +44,12 @@
 				}
 			}
 		},
-		activated() {
+		mounted() {
 			window.addEventListener('scroll', this.handleScroll)
-		},
-		deactivated() {
-			window.removeEventListener('scroll', this.handleScroll)
 		}
+		/*deactivated() {
+			window.removeEventListener('scroll', this.handleScroll)
+		}*/
 	}
 </script>
 
@@ -58,7 +65,7 @@
 		background: #000
 		text-align: center
 		line-height: .8rem
-		.header-abs-icon
+		.header-abs-back
 			color: #fff
 			font-size: .4rem
 	.header-fixed
@@ -73,7 +80,7 @@
 		color: #fff
 		background: $bgColor
 		font-size: .32rem
-		.header-fixed-icon
+		.header-fixed-back
 			position: absolute
 			top: 0
 			left: 0

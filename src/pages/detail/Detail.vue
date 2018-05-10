@@ -32,16 +32,12 @@
 		},
 		methods: {
 			getDetailInfo() {
-				axios.get('/api/detail.json', {
-					params: {
-						id: this.$route.params.id
-					}
-				}).then(this.handleGetDataSucc)
+				axios.get('/api/detail.json').then(this.handleGetDataSucc)
 			},
 			handleGetDataSucc(res) {
 				res = res.data
 				if(res.ret && res.data){
-					const data = res.data
+					const data = res.data[this.$route.params.id - 1]
 					this.sightName = data.sightName
 					this.bannerImg = data.bannerImg
 					this.gallaryImgs = data.gallaryImgs

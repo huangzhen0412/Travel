@@ -20,6 +20,7 @@
 	export default {
 		name: 'DetailList',
 		props: {
+			id: Number,
 			list: Array
 		}
 	}
