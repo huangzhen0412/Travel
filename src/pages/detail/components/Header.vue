@@ -33,6 +33,7 @@
 		},
 		methods: {
 			handleScroll() {
+				console.log('scroll')
 				const top = document.documentElement.scrollTop
 				if(top > 60){
 					let opacity = top/140
@@ -46,6 +47,9 @@
 		},
 		mounted() {
 			window.addEventListener('scroll', this.handleScroll)
+		},
+		beforeDestroy () {
+			window.removeEventListener('scroll', this.handleScroll)
 		}
 		/*deactivated() {
 			window.removeEventListener('scroll', this.handleScroll)
